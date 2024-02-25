@@ -58,3 +58,11 @@ VALUES
     ('Company JJ', 'Manufacturing', 370.0, 3100, 1, 20, 12, 7.6),
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
 
+#Write at least 5 different queries.
+
+#Do each of the following at least once:
+
+#Group the data in a new way using a CASE statement.
+#Use a HAVING clause to determine something interesting about the data per category.
+#Use logical operators like AND or OR to filter the data in an interesting way.
+#Use an aggregate function like AVG, SUM, COUNT, MAX, and/or MIN to return summary statistics about the data.
