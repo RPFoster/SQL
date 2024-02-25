@@ -58,11 +58,36 @@ VALUES
     ('Company JJ', 'Manufacturing', 370.0, 3100, 1, 20, 12, 7.6),
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
 
-#Write at least 5 different queries.
 
-#Do each of the following at least once:
+#which companies have at least 500 billion in revenue *or* 15,000 employees?
+SELECT company_name
+FROM fortune_companies
+WHERE revenue>500
+OR employees>=15000
 
-#Group the data in a new way using a CASE statement.
-#Use a HAVING clause to determine something interesting about the data per category.
-#Use logical operators like AND or OR to filter the data in an interesting way.
-#Use an aggregate function like AVG, SUM, COUNT, MAX, and/or MIN to return summary statistics about the data.
+#assign Retail companies as "great retention" "acceptable retention" or "terrible retention" based on average employee tenure
+
+SELECT
+company_name,
+CASE 
+  WHEN avg_employee_tenure >= 6 THEN 'great retention'
+  WHEN avg_employee_tenure >= 5.5 THEN 'acceptable retention'
+  ELSE 'terrible retention'
+END as employee_retention
+FROM fortune_companies
+WHERE industry='Retail'
+
+#What is the average number of employees in the industries that average at least 15,000 employees?
+
+SELECT industry, ROUND(AVG(employees),1) as avg_employees
+FROM fortune_companies
+GROUP BY industry
+HAVING avg_employees>=15000
+
+#What retail company offers the most PTO days, and how many?
+
+SELECT company_name, max(paid_time_off_days)
+FROM fortune_companies
+WHERE industry = 'Retail'
+;
+
