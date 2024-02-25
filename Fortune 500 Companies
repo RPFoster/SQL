@@ -58,6 +58,10 @@ VALUES
     ('Company JJ', 'Manufacturing', 370.0, 3100, 1, 20, 12, 7.6),
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
 
+#Which companies offer healthcare benefits??
+SELECT *
+FROM fortune_companies
+WHERE healthcare_benefits IN ("1")
 
 #which companies have at least 500 billion in revenue *or* 15,000 employees?
 SELECT company_name
@@ -91,3 +95,5 @@ FROM fortune_companies
 WHERE industry = 'Retail'
 ;
 
+
+SELECT
